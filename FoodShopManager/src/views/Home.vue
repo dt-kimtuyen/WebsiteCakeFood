@@ -1,17 +1,38 @@
 <template>
   <div>
-    <!-- Hero Section -->
-    <div class="relative bg-rose-600 text-white py-16">
-      <div class="container mx-auto px-4 flex flex-col items-center text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Delicious Food Delivered to Your Door</h1>
-        <p class="text-xl mb-8 max-w-2xl">Explore our menu of fresh, tasty dishes prepared by expert chefs and delivered right to your doorstep.</p>
-        <button class="bg-white text-rose-600 font-bold py-3 px-8 rounded-full hover:bg-rose-100 transition duration-300">
-          Order Now
-        </button>
+    <div>
+  <div class="bg-gradient-to-r from-rose-300 via-rose-400 to-rose-600 text-white h-[350px] flex items-center">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      
+      <!-- Hình ảnh bên trái -->
+      <div class="flex justify-center">
+        <img src="https://png.pngtree.com/png-clipart/20240710/original/pngtree-order-foods-online-from-app-by-smart-phone-fast-food-delivery-png-image_15527448.png" 
+             alt="Fast Food Poster" 
+             class="rounded-xl shadow-lg w-full max-w-md object-cover" />
       </div>
-    </div>
+      
+      <!-- Nội dung bên phải -->
+      <div class="text-center md:text-left">
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-snug drop-shadow-lg mb-3">
+          Giao Món Ngon Tận Nhà
+        </h1>
+        <p class="text-sm md:text-base max-w-xl mb-5 drop-shadow-md mx-auto md:mx-0">
+          Khám phá thực đơn phong phú với món ăn tươi ngon, chế biến bởi đầu bếp chuyên nghiệp, giao tận nơi nhanh chóng.
+        </p>
+        <button class="bg-white text-rose-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-rose-100 hover:scale-105 transition duration-300">
+          Đặt Món Ngay
+        </button>
+        <p class="mt-4 text-xs text-white/80 italic">
+          Nhóm thực hiện: <strong>NICEA</strong>
+        </p>
+      </div>
 
-    <!-- Category Filter -->
+    </div>
+  </div>
+</div>
+
+
+
     <div class="container mx-auto px-4 py-8">
       <div class="flex flex-wrap justify-center gap-4 mb-8">
         <button 

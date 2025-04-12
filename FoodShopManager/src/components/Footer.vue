@@ -22,7 +22,7 @@
             <ul class="space-y-2 text-gray-300">
               <li class="flex items-center">
                 <MapPin class="h-5 w-5 mr-2" />
-                123 Food Street, City
+                123 Food NICEA
               </li>
               <li class="flex items-center">
                 <Phone class="h-5 w-5 mr-2" />
