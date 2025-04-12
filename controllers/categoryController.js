@@ -18,18 +18,25 @@ exports.getAllCategories = async (req, res) => {
   const list = await Category.find();
   res.json(list);
 };
+exports.getActiveCategories = async (req, res) => {
+  const list = await Category.find({status:'active'});
+  console.log(list)
+  res.json(list);
+};
 
 // UPDATE
 exports.updateCategory = async (req, res) => {
   try {
-    const { name, description } = req.body;
+    const { name, description, status } = req.body;
+    console.log(req.body)
     const updated = await Category.findByIdAndUpdate(
       req.params.id,
-      { name, description },
+      { name, description , status},
       { new: true }
     );
     res.json({ message: 'Cập nhật thành công', updated });
   } catch (err) {
+    console.log(err.message)
     res.status(500).json({ message: 'Lỗi server' });
   }
 };

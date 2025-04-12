@@ -40,16 +40,6 @@ app.get('/', async (req, res) => {
     res.status(500).send('Lỗi khi lấy dữ liệu');
   }
 });
-// UI Routes (Giao diện)
-app.get('/', (req, res) => res.render('index'));
-app.get('/login-ui', (req, res) => res.render('login'));
-app.get('/register-ui', (req, res) => res.render('register'));
-app.get('/product-ui', (req, res) => res.render('product'));
-app.get('/category-ui', (req, res) => res.render('category'));
-app.get('/order-ui', (req, res) => res.render('order'));
-app.get('/feedback-ui', (req, res) => res.render('feedback'));
-app.get('/blog-ui', (req, res) => res.render('blog'));
-app.get('/warehouse-ui', (req, res) => res.render('warehouse'));
 
 // API Routes
 app.use('/api/users', require('./routes/userRoute'));

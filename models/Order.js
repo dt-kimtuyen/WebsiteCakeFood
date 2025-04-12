@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
-  customerName: {
-    type: String,
-    required: true
-  },
-  products: {
-    type: [String], // danh sách tên sản phẩm (kiểu mảng chuỗi)
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // liên kết tới bảng User
     required: true
   },
   total: {
@@ -15,7 +12,7 @@ const OrderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'processing', 'shipped'],
+    enum: ['pending', 'processing', 'shipped', 'cancelled', 'delivered'],
     default: 'pending'
   },
   createdAt: {

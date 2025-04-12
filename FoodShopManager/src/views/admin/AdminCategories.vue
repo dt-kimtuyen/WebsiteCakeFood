@@ -76,15 +76,7 @@
                 <button @click="editCategory(category)" class="text-indigo-600 hover:text-indigo-900 mr-3">
                   <Edit class="h-5 w-5" />
                 </button>
-                <button @click="toggleCategoryStatus(category)" class="text-gray-600 hover:text-gray-900 mr-3"
-                  :title="category.status === 'active' ? 'Deactivate Category' : 'Activate Category'">
-                  <template v-if="category.status === 'active'">
-                    <EyeOff class="h-5 w-5" />
-                  </template>
-                  <template v-else>
-                    <Eye class="h-5 w-5" />
-                  </template>
-                </button>
+          
                 <button @click="deleteCategory(category._id)" class="text-red-600 hover:text-red-900"
                   :disabled="category.productCount > 0"
                   :class="{ 'opacity-50 cursor-not-allowed': category.productCount > 0 }"
@@ -240,7 +232,6 @@ export default {
       currentCategory.value = {
         name: '',
         description: '',
-        image: '',
         isActive: true,
       };
     };
@@ -248,6 +239,7 @@ export default {
     const closeCategoryModal = () => {
       showAddCategoryModal.value = false;
       showEditCategoryModal.value = false;
+
       resetCurrentCategory();
     };
 
@@ -273,33 +265,30 @@ export default {
     };
 
 
-    const editCategory = async (category) => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/categories/get/${category.id}`);
-        const apiCategory = response.data;
-        currentCategory.value = {
-          id: apiCategory.id,
-          name: apiCategory.name,
-          description: apiCategory.description || '',
-          image: apiCategory.image || '',
-          isActive: apiCategory.status === 'active',
-        };
+    const editCategory = (category) => {
+        currentCategory.value=category
+        currentCategory.value.isActive = currentCategory.value.status === 'active'?true:false
         showEditCategoryModal.value = true;
-      } catch (error) {
-        console.error('Error fetching category:', error);
-      }
+
     };
 
     const updateCategory = async () => {
       try {
-        await axios.put(`http://localhost:5000/api/categories/update/${currentCategory.value.id}`, {
+        const token = localStorage.getItem('token');
+        await axios.put(`http://localhost:3000/api/categories/${currentCategory.value._id}`, {
           name: currentCategory.value.name,
           description: currentCategory.value.description,
+          status: currentCategory.value.isActive ? 'active' : 'inactive'
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         });
+
         await fetchCategories();
         closeCategoryModal();
       } catch (error) {
-        console.error('Error updating category:', error);
+        console.error('Error adding category:', error);
       }
     };
 
@@ -370,6 +359,7 @@ export default {
       deleteCategory,
       confirmDelete,
       closeCategoryModal,
+      
     };
   },
 };

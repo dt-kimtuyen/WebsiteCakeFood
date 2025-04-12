@@ -6,6 +6,8 @@ const { verifyToken, isAdmin } = require('../middlewares/authorization');  // Im
 
 // Các route sử dụng verifyToken đã được import
 router.get('/', categoryController.getAllCategories);
+router.get('/isactive', categoryController.getActiveCategories);
+
 router.post('/', verifyToken,isAdmin, categoryController.createCategory);  // Sử dụng middleware verifyToken
 router.put('/:id', verifyToken,isAdmin, categoryController.updateCategory); // Sử dụng middleware verifyToken
 router.delete('/:id', verifyToken,isAdmin, categoryController.deleteCategory); // Sử dụng middleware verifyToken
