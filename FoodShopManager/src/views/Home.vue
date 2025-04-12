@@ -1,36 +1,36 @@
 <template>
   <div>
     <div>
-  <div class="bg-gradient-to-r from-rose-300 via-rose-400 to-rose-600 text-white h-[350px] flex items-center">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      
-      <!-- Hình ảnh bên trái -->
-      <div class="flex justify-center">
-        <img src="https://png.pngtree.com/png-clipart/20240710/original/pngtree-order-foods-online-from-app-by-smart-phone-fast-food-delivery-png-image_15527448.png" 
-             alt="Fast Food Poster" 
-             class="rounded-xl shadow-lg w-full max-w-md object-cover" />
-      </div>
-      
-      <!-- Nội dung bên phải -->
-      <div class="text-center md:text-left">
-        <h1 class="text-3xl md:text-4xl font-extrabold leading-snug drop-shadow-lg mb-3">
-          Giao Món Ngon Tận Nhà
-        </h1>
-        <p class="text-sm md:text-base max-w-xl mb-5 drop-shadow-md mx-auto md:mx-0">
-          Khám phá thực đơn phong phú với món ăn tươi ngon, chế biến bởi đầu bếp chuyên nghiệp, giao tận nơi nhanh chóng.
-        </p>
-        <button class="bg-white text-rose-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-rose-100 hover:scale-105 transition duration-300">
-          Đặt Món Ngay
-        </button>
-        <p class="mt-4 text-xs text-white/80 italic">
-          Nhóm thực hiện: <strong>NICEA</strong>
-        </p>
-      </div>
+      <div class="bg-gradient-to-r from-rose-300 via-rose-400 to-rose-600 text-white h-[320px] flex items-center">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
+    <div class="flex justify-center gap-4 items-center">
+      <img src="https://img.lovepik.com/png/20231031/Chef-logo-image-white-hat-drawing-picture-cook_427358_wh1200.png"
+           alt="Chef Logo"
+           class="w-[200px] md:w-[260px] object-contain drop-shadow-lg" />
+
+      <img src="https://png.pngtree.com/png-clipart/20240710/original/pngtree-order-foods-online-from-app-by-smart-phone-fast-food-delivery-png-image_15527448.png"
+           alt="Fast Food Poster"
+           class="w-[260px] md:w-[400px] object-contain drop-shadow-lg" />
+    </div>
+
+    <div class="text-center md:text-left">
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-snug drop-shadow-lg mb-3">
+        Giao Món Ngon Tận Nhà
+      </h1>
+      <p class="text-sm md:text-base max-w-xl mb-5 drop-shadow-md mx-auto md:mx-0">
+        Khám phá thực đơn phong phú với món ăn tươi ngon, giao tận nơi nhanh chóng.
+      </p>
+      <button class="bg-white text-rose-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-rose-100 hover:scale-105 transition duration-300">
+        Đặt Món Ngay
+      </button>
+      <p class="mt-4 text-xs text-white/80 italic">
+        Nhóm thực hiện: <strong>NICEA</strong>
+      </p>
     </div>
   </div>
 </div>
-
+</div>
 
 
     <div class="container mx-auto px-4 py-8">
