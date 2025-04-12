@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const WarehouseSchema = new mongoose.Schema({
   productName: {
     type: String,
@@ -17,5 +16,4 @@ const WarehouseSchema = new mongoose.Schema({
     default: Date.now
   }
 });
-
 module.exports = mongoose.model('Warehouse', WarehouseSchema);
