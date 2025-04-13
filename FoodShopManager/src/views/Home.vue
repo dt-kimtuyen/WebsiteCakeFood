@@ -126,13 +126,23 @@
         </div>
 
         <div class="text-center mt-8">
-          <router-link 
-            to="/blogs"
-            class="text-rose-600 font-semibold underline hover:text-rose-800 transition"
-          >
-            Xem tất cả bài viết →
-          </router-link>
-        </div>
+  <router-link 
+    to="/blogs"
+    class="text-rose-600 font-semibold underline hover:text-rose-800 transition"
+  >
+    Xem tất cả bài viết →
+  </router-link>
+
+  <!-- Nút Gửi phản hồi -->
+  <router-link 
+    to="/feedbacks"
+    class="mt-4 ml-4 inline-block bg-rose-600 text-white py-2 px-6 rounded-full hover:bg-rose-700 transition"
+  >
+    Gửi phản hồi ✉️
+  </router-link>
+</div>
+
+        
       </div>
     </div>
   </div>

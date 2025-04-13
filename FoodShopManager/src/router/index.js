@@ -20,6 +20,7 @@ import AdminBlog from '../views/admin/AdminBlog.vue'
 
 
 
+
 const routes = [
   {
     path: '/',
@@ -117,7 +118,13 @@ const routes = [
     name: 'AdminBlog',
     component: AdminBlog,
     meta: { requiresAuth: true, requiresAdmin: true }
+  },
+  {
+    path: '/feedbacks',
+    name: 'Feedback',
+    component: () => import('@/views/Feedback.vue') // hoặc đường dẫn phù hợp với bạn
   }
+  
   
   
   
