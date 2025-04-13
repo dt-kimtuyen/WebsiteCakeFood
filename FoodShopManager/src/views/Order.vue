@@ -146,7 +146,7 @@ export default {
     const currentPage = ref(1);
     const ordersPerPage = 3;
 
-    // Fetch orders from API
+    // goi api de lay danh sach don hang va token de xac thuc
     const fetchOrders = async () => {
 loading.value = true;
 try {
@@ -195,7 +195,7 @@ try {
       return result;
     });
 
-    // Pagination
+    // Pagination phan tarng 
     const totalPages = computed(() => {
       return Math.ceil(filteredOrders.value.length / ordersPerPage);
     });
@@ -320,7 +320,7 @@ try {
       reorder,
       canReOrder
     };
-  }
+  }//Các biến và hàm này được return để sử dụng ở phần <template> của component.
 }
 </script>
 

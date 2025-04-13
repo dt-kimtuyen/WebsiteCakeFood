@@ -324,7 +324,7 @@ export default {
         cartItems.value = JSON.parse(storedCart)
       }
       
-      // Pre-fill form with user data if available
+      // lay du lieu ng dung
       const user = JSON.parse(localStorage.getItem('user') || '{}')
       if (user.email) {
         form.value.email = user.email

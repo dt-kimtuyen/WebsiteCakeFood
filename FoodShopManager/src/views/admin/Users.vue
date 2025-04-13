@@ -314,7 +314,7 @@
       onMounted(() => {
         fetchUsers()
       })
-  
+  //loc ds ng dung
       const filteredUsers = computed(() => {
         let result = [...users.value]
         const query = searchQuery.value.toLowerCase()
@@ -349,7 +349,7 @@
         showEditUserModal.value = false
         resetCurrentUser()
       }
-  
+  //them ng dung ms
       const addUser = async () => {
       
         try {
@@ -410,7 +410,7 @@
           console.error('Error updating user:', error)
         }
       }
-  
+  //bat tat trang thai
       const toggleUserStatus = async user => {
         try {
           const token = localStorage.getItem('token')
