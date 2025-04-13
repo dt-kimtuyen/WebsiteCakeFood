@@ -63,10 +63,11 @@ exports.updateProduct = async (req, res) => {
       const products = await Product.find();
       res.json(products);
     } catch (err) {
-      console.error('❌ Lỗi khi lấy sản phẩm:', err);
+      console.error(' Lỗi khi lấy sản phẩm:', err);
       res.status(500).json({ message: 'Lỗi server' });
     }
   };
+
 // Xoá sản phẩm
 exports.deleteProduct = async (req, res) => {
     try {
@@ -76,9 +77,8 @@ exports.deleteProduct = async (req, res) => {
   
       res.json({ message: 'Xoá thành công' });
     } catch (err) {
-      console.error('❌ Lỗi xoá:', err);
+      console.error(' Lỗi xoá:', err);
       res.status(500).json({ message: 'Lỗi server' });
     }
   };
-  
 

@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(express.static('public')); // Để load CSS, ảnh tĩnh
 app.use('/uploads', express.static('uploads')); // Load ảnh từ thư mục uploads
 
+
 // View Engine - PUG
 app.set('view engine', 'pug');
 app.set('views', './views');

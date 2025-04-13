@@ -1,12 +1,11 @@
 <template>
   <div class="container mx-auto px-6 py-12">
-    <h1 class="text-4xl font-extrabold text-center text-[#e11d48] mb-12 tracking-tight">📊 Admin Dashboard</h1>
+    <h1 class="text-4xl font-extrabold text-center text-[#e11d48] mb-12 tracking-tight">
+      📊 Admin Dashboard
+    </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <router-link
-        to="/admin/adminCategories"
-        class="card-dashboard group"
-      >
+      <router-link to="/admin/adminCategories" class="card-dashboard group">
         <div class="icon-wrapper bg-rose-100 text-rose-500">
           <img src="https://img.icons8.com/fluency/48/folder-invoices.png" alt="Categories" class="w-8 h-8" />
         </div>
@@ -16,10 +15,7 @@
         </div>
       </router-link>
 
-      <router-link
-        to="/admin/products"
-        class="card-dashboard group"
-      >
+      <router-link to="/admin/products" class="card-dashboard group">
         <div class="icon-wrapper bg-yellow-100 text-yellow-600">
           <img src="https://img.icons8.com/fluency/48/shopping-cart.png" alt="Products" class="w-8 h-8" />
         </div>
@@ -29,10 +25,7 @@
         </div>
       </router-link>
 
-      <router-link
-        to="/admin/orders"
-        class="card-dashboard group"
-      >
+      <router-link to="/admin/orders" class="card-dashboard group">
         <div class="icon-wrapper bg-blue-100 text-blue-600">
           <img src="https://png.pngtree.com/png-clipart/20230317/original/pngtree-colorful-order-now-label-png-image_8990854.png" alt="Orders" class="w-8 h-8" />
         </div>
@@ -42,16 +35,23 @@
         </div>
       </router-link>
 
-      <router-link
-        to="/admin/users"
-        class="card-dashboard group"
-      >
+      <router-link to="/admin/users" class="card-dashboard group">
         <div class="icon-wrapper bg-purple-100 text-purple-600">
           <img src="https://img.icons8.com/fluency/48/user-group-man-man.png" alt="Users" class="w-8 h-8" />
         </div>
         <div>
           <h2 class="text-lg font-semibold text-gray-800 group-hover:text-purple-600">Users</h2>
           <p class="text-sm text-gray-500">{{ counts.users }} users</p>
+        </div>
+      </router-link>
+
+      <router-link to="/admin/blogs" class="card-dashboard group">
+        <div class="icon-wrapper bg-pink-100 text-pink-600">
+          <img src="https://img.icons8.com/fluency/48/blog.png" alt="Blogs" class="w-8 h-8" />
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-gray-800 group-hover:text-pink-600">Blogs</h2>
+          <p class="text-sm text-gray-500">{{ counts.blogs }} blogs</p>
         </div>
       </router-link>
     </div>
@@ -66,13 +66,14 @@ const counts = ref({
   categories: 0,
   products: 0,
   orders: 0,
-  users: 0
+  users: 0,
+  blogs: 0
 })
 
 const fetchCounts = async () => {
   const token = localStorage.getItem('token')
   try {
-    const [catRes, prodRes, orderRes, userRes] = await Promise.all([
+    const [catRes, prodRes, orderRes, userRes, blogRes] = await Promise.all([
       axios.get('http://localhost:3000/api/categories'),
       axios.get('http://localhost:3000/api/products'),
       axios.get('http://localhost:3000/api/orders/all', {
@@ -80,14 +81,16 @@ const fetchCounts = async () => {
       }),
       axios.get('http://localhost:3000/api/users/users', {
         headers: { Authorization: `Bearer ${token}` }
-      })
+      }),
+      axios.get('http://localhost:3000/api/blogs')
     ])
 
     counts.value = {
       categories: catRes.data.length,
       products: prodRes.data.length,
       orders: orderRes.data.length,
-      users: userRes.data.users.length
+      users: userRes.data.users.length,
+      blogs: blogRes.data.length
     }
   } catch (err) {
     console.error('Error fetching dashboard stats:', err)

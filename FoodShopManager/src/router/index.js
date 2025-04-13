@@ -13,6 +13,10 @@ import AdminProducts from '../views/admin/Products.vue'
 import AdminCategories from '../views/admin/AdminCategories.vue'
 import AdminOrders from '../views/admin/Orders.vue'
 import AdminUsers from '../views/admin/Users.vue'
+import Blog from '@/views/Blog.vue'
+import BlogList from '../views/BlogList.vue'
+import BlogDetail from '../views/BlogDetail.vue'
+import AdminBlog from '../views/admin/AdminBlog.vue'
 
 
 
@@ -96,7 +100,27 @@ const routes = [
     name: 'AdminUsers',
     component: AdminUsers,
     meta: { requiresAuth: true, requiresAdmin: true }
+  },
+
+  {
+    path: '/blogs',
+    name: 'BlogList',
+    component: BlogList
+  },
+  {
+    path: '/blogs/:id',
+    name: 'BlogDetail',
+    component: BlogDetail
+  },
+  {
+    path: '/admin/blogs',
+    name: 'AdminBlog',
+    component: AdminBlog,
+    meta: { requiresAuth: true, requiresAdmin: true }
   }
+  
+  
+  
 ]
 
 const router = createRouter({

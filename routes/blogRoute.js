@@ -1,11 +1,21 @@
-const express = require('express');
-const router = express.Router();
-const blogController = require('../controllers/blogController');
-const { verifyToken, isAdmin } = require('../middlewares/authorization');  // Import verifyToken và isAdmin từ authorization.js
+// routes/blogRoute.js
+const express = require('express')
+const router = express.Router()
+const blogController = require('../controllers/blogController')
+const { verifyToken, isAdmin } = require('../middlewares/authorization')
+const multer = require('multer')
 
-router.get('/', blogController.getAllBlogs);  // Dành cho cả Admin và User
-router.post('/', verifyToken, isAdmin, blogController.createBlog); 
-router.put('/:id', verifyToken, isAdmin, blogController.updateBlog); 
-router.delete('/:id', verifyToken, isAdmin, blogController.deleteBlog); 
+// Cấu hình lưu ảnh vào thư mục uploads/
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, 'uploads/'),
+  filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
+})
+const upload = multer({ storage })
 
-module.exports = router;  
+// Blog API Routes
+router.get('/', blogController.getAllBlogs)
+router.post('/', verifyToken, isAdmin, upload.single('image'), blogController.createBlog)
+router.put('/:id', verifyToken, isAdmin, upload.single('image'), blogController.updateBlog)
+router.delete('/:id', verifyToken, isAdmin, blogController.deleteBlog)
+
+module.exports = router
