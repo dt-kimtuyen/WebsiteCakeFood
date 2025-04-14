@@ -17,7 +17,7 @@
                 
                 <div class="flex-grow">
                   <h3 class="font-medium text-gray-800">{{ item.name }}</h3>
-                  <p class="text-gray-600 text-sm">${{ item.price.toFixed(2) }} each</p>
+                  <p class="text-gray-600 text-sm">${{ item.price.toFixed(3) }} each</p>
                 </div>
                 
                 <div class="flex items-center mt-4 sm:mt-0">
@@ -44,7 +44,7 @@
                     <Plus class="h-4 w-4" />
                   </button>
                   
-                  <span class="mx-4 font-medium">${{ (item.price * item.quantity).toFixed(2) }}</span>
+                  <span class="mx-4 font-medium">${{ (item.price * item.quantity).toFixed(3) }}</span>
                   
                   <button 
                     @click="removeItem(item.id)" 
@@ -82,22 +82,22 @@
             <div class="p-4 space-y-4">
               <div class="flex justify-between">
                 <span class="text-gray-600">Subtotal</span>
-                <span class="font-medium">${{ subtotal.toFixed(2) }}</span>
+                <span class="font-medium">${{ subtotal.toFixed(3) }}</span>
               </div>
               
               <div class="flex justify-between">
                 <span class="text-gray-600">Shipping</span>
-                <span class="font-medium">${{ shipping.toFixed(2) }}</span>
+                <span class="font-medium">${{ shipping.toFixed(3) }}</span>
               </div>
               
               <div class="flex justify-between">
                 <span class="text-gray-600">Tax</span>
-                <span class="font-medium">${{ tax.toFixed(2) }}</span>
+                <span class="font-medium">${{ tax.toFixed(3) }}</span>
               </div>
               
               <div class="border-t pt-4 flex justify-between font-bold">
                 <span>Total</span>
-                <span>${{ total.toFixed(2) }}</span>
+                <span>${{ total.toFixed(3) }}</span>
               </div>
               
               <router-link 

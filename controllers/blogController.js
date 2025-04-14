@@ -1,4 +1,4 @@
-// controllers/blogController.js
+
 const Blog = require('../models/Blog')
 
 // CREATE

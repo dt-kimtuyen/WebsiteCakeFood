@@ -280,9 +280,9 @@ export default {
     const dateRange = ref('all')
     const showOrderDetailsModal = ref(false)
     const selectedOrder = ref({})
-    const orders = ref([])  // Khai báo orders là một ref
+    const orders = ref([])  
     const loading = ref(false)
-    // Mock data for orders
+    
     const fetchOrders = async () => {
     const token = localStorage.getItem('token')
     loading.value = true
@@ -292,7 +292,7 @@ export default {
           Authorization: `Bearer ${token}`
         }
       })
-      orders.value = res.data // tuỳ theo cấu trúc bạn trả về
+      orders.value = res.data 
     } catch (err) {
       console.error('Lỗi lấy danh sách đơn hàng:', err)
     } finally {
@@ -304,11 +304,11 @@ export default {
     fetchOrders()
   })
     
-    // Computed
+   
     const filteredOrders = computed(() => {
 let result = [...orders.value]
 
-// Filter by search query
+
 if (searchQuery.value) {
   const query = searchQuery.value.toLowerCase()
   result = result.filter(order =>
@@ -317,19 +317,18 @@ if (searchQuery.value) {
   )
 }
 
-// Filter by status
+
 if (selectedStatus.value) {
   result = result.filter(order => order.status === selectedStatus.value)
 }
 
-// Filter by date range
 if (dateRange.value !== 'all') {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
 
   const orderDateInRange = (orderDate) => {
     const date = new Date(orderDate)
-    date.setHours(0, 0, 0, 0) // để chỉ so sánh ngày
+    date.setHours(0, 0, 0, 0) 
 
     if (dateRange.value === 'today') {
       return date.getTime() === today.getTime()
@@ -358,7 +357,6 @@ if (dateRange.value !== 'all') {
   result = result.filter(order => orderDateInRange(order.createdAt))
 }
 
-// Sort by createdAt (newest first)
 result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 return result
@@ -369,7 +367,7 @@ return result
       return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
-    // Methods
+
     const viewOrderDetails = (order) => {
       selectedOrder.value = { ...order }
       showOrderDetailsModal.value = true
@@ -391,7 +389,7 @@ return result
 
         console.log('Cập nhật thành công', response.data)
 
-        // Cập nhật lại danh sách đơn hàng nếu cần
+        
         await fetchOrders()
       } catch (error) {
         console.error('Lỗi khi hủy đơn hàng:', error)
@@ -400,13 +398,13 @@ return result
     }
     
     const printOrder = (orderId) => {
-      // In a real app, this would generate a printable version of the order
+     
       console.log(`Printing order ${orderId}`)
       alert(`Printing order #${orderId}`)
     }
     
     const exportOrders = () => {
-      // In a real app, this would generate a CSV or PDF export
+     
       console.log('Exporting orders')
       alert('Orders exported successfully')
     }

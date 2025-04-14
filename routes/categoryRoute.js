@@ -2,14 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
-const { verifyToken, isAdmin } = require('../middlewares/authorization');  // Import verifyToken từ file authorization.js
-
-// Các route sử dụng verifyToken đã được import
-router.get('/', categoryController.getAllCategories);
+const { verifyToken, isAdmin } = require('../middlewares/authorization');  
 router.get('/isactive', categoryController.getActiveCategories);
 
-router.post('/', verifyToken,isAdmin, categoryController.createCategory);  // Sử dụng middleware verifyToken
-router.put('/:id', verifyToken,isAdmin, categoryController.updateCategory); // Sử dụng middleware verifyToken
-router.delete('/:id', verifyToken,isAdmin, categoryController.deleteCategory); // Sử dụng middleware verifyToken
+router.post('/', verifyToken,isAdmin, categoryController.createCategory);  
+router.put('/:id', verifyToken,isAdmin, categoryController.updateCategory); 
+router.delete('/:id', verifyToken,isAdmin, categoryController.deleteCategory); 
 
-module.exports = router;  // Xuất router để sử dụng trong file app.js hoặc các route khác
+module.exports = router;  

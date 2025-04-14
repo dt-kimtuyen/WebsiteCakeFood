@@ -1,15 +1,14 @@
-// orderRoute.js
+
 const express = require('express');
 const router = express.Router();
 const orderController = require('../controllers/orderController');
-const { verifyToken, isAdmin } = require('../middlewares/authorization');  // Import verifyToken từ authorization.js
+const { verifyToken, isAdmin } = require('../middlewares/authorization');  
 
-// Các route cho Order với phân quyền Admin
-router.get('/',verifyToken ,orderController.getOrders);  // Dành cho cả Admin và User
-router.get('/all',verifyToken ,orderController.getAllOrders);  // Dành cho cả Admin và User
 
-router.post('/', verifyToken, orderController.createOrder);  // Chỉ Admin mới có quyền tạo
-router.put('/:id', verifyToken, isAdmin, orderController.updateOrder); // Chỉ Admin mới có quyền sửa
-router.delete('/:id', verifyToken, isAdmin, orderController.deleteOrder); // Chỉ Admin mới có quyền xóa
+router.get('/',verifyToken ,orderController.getOrders);  
+router.get('/all',verifyToken ,orderController.getAllOrders); 
 
+router.post('/', verifyToken, orderController.createOrder);  
+router.put('/:id', verifyToken, isAdmin, orderController.updateOrder); 
+router.delete('/:id', verifyToken, isAdmin, orderController.deleteOrder); 
 module.exports = router;

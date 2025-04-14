@@ -1,15 +1,14 @@
 const Role = require('../models/Role');
 
-// Tạo mới Role
+
 exports.createRole = async (req, res) => {
   const { name, description } = req.body;
 
   try {
-      // Kiểm tra xem role đã tồn tại chưa
+      
       const existingRole = await Role.findOne({ name });
       if (existingRole) return res.status(400).json({ message: 'Role đã tồn tại' });
 
-      // Tạo role mới
       const newRole = new Role({
           name,
           description
@@ -23,7 +22,7 @@ exports.createRole = async (req, res) => {
   }
 };
 
-// Lấy tất cả roles
+
 exports.getAllRoles = async (req, res) => {
   try {
     const roles = await Role.find();
@@ -34,7 +33,7 @@ exports.getAllRoles = async (req, res) => {
   }
 };
 
-// Lấy role theo ID
+
 exports.getRoleById = async (req, res) => {
   const { id } = req.params;
 
@@ -50,7 +49,7 @@ exports.getRoleById = async (req, res) => {
   }
 };
 
-// Cập nhật role theo ID
+
 exports.updateRole = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
@@ -73,7 +72,7 @@ exports.updateRole = async (req, res) => {
   }
 };
 
-// Xóa role theo ID
+
 exports.deleteRole = async (req, res) => {
   const { id } = req.params;
 

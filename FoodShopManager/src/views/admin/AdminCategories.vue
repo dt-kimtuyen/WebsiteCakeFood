@@ -189,7 +189,7 @@ export default {
     Utensils,
   },
   setup() {
-    // State
+
     const searchQuery = ref('');
     const selectedStatus = ref('');
     const showAddCategoryModal = ref(false);
@@ -198,7 +198,7 @@ export default {
     const categoryToDeleteId = ref(null);
     const categories = ref([]);
 
-    // Current category for add/edit
+    
     const currentCategory = ref({
       name: '',
       description: '',
@@ -206,7 +206,7 @@ export default {
       isActive: true,
     });
 
-    // Computed
+
     const filteredCategories = computed(() => {
       let result = [...categories.value];
 
@@ -227,7 +227,7 @@ export default {
       return result;
     });
 
-    // Methods
+   
     const resetCurrentCategory = () => {
       currentCategory.value = {
         name: '',

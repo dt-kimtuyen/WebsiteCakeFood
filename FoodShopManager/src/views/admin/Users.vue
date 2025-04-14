@@ -11,7 +11,7 @@
         </button>
       </div>
       
-      <!-- Search and Filter -->
+   
       <div class="bg-white rounded-lg shadow-md p-4 mb-6">
         <div class="flex flex-col md:flex-row gap-4">
           <div class="flex-grow">
@@ -56,7 +56,7 @@
         </div>
       </div>
       
-      <!-- Users Table -->
+     
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="overflow-x-auto">
           <table class="min-w-full divide-y divide-gray-200">
@@ -133,7 +133,7 @@
           </table>
         </div>
         
-        <!-- Empty State -->
+
         <div v-if="filteredUsers.length === 0" class="text-center py-12">
           <Users class="h-16 w-16 mx-auto text-gray-400 mb-4" />
           <h3 class="text-xl font-semibold text-gray-700 mb-2">No users found</h3>
@@ -141,7 +141,7 @@
         </div>
       </div>
       
-      <!-- Add/Edit User Modal -->
+   
       <div v-if="showAddUserModal || showEditUserModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
           <div class="p-4 border-b">
@@ -221,7 +221,7 @@
         </div>
       </div>
       
-      <!-- Delete Confirmation Modal -->
+   
       <div v-if="showDeleteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
           <div class="p-4 border-b">
@@ -314,7 +314,7 @@
       onMounted(() => {
         fetchUsers()
       })
-  //loc ds ng dung
+ 
       const filteredUsers = computed(() => {
         let result = [...users.value]
         const query = searchQuery.value.toLowerCase()
@@ -349,7 +349,7 @@
         showEditUserModal.value = false
         resetCurrentUser()
       }
-  //them ng dung ms
+ 
       const addUser = async () => {
       
         try {
@@ -410,7 +410,7 @@
           console.error('Error updating user:', error)
         }
       }
-  //bat tat trang thai
+
       const toggleUserStatus = async user => {
         try {
           const token = localStorage.getItem('token')

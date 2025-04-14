@@ -7,7 +7,7 @@
         </button>
       </div>
   
-      <!-- Danh sách Blog -->
+    
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="blog in blogs" :key="blog._id" class="bg-white rounded-lg shadow-md hover:shadow-lg">
           <img
@@ -26,8 +26,7 @@
           </div>
         </div>
       </div>
-  
-      <!-- Modal Thêm / Sửa -->
+ 
       <div v-if="showModal" class="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
           <h2 class="text-xl font-bold mb-4">{{ isEdit ? 'Sửa Blog' : 'Thêm Blog' }}</h2>

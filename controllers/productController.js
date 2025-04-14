@@ -2,7 +2,6 @@ const Category = require('../models/Category');
 const Product = require('../models/Product');
 
 
-// Thêm sản phẩm
 exports.createProduct = async (req, res) => {
   try {
     const { name, description, price, categoryId } = req.body
@@ -24,7 +23,7 @@ exports.createProduct = async (req, res) => {
   }
 }
 
-// Cập nhật sản phẩm
+
 exports.updateProduct = async (req, res) => {
   try {
     const { name, description, price, categoryId } = req.body
@@ -68,7 +67,6 @@ exports.updateProduct = async (req, res) => {
     }
   };
 
-// Xoá sản phẩm
 exports.deleteProduct = async (req, res) => {
     try {
       const deleted = await Product.findByIdAndDelete(req.params.id);

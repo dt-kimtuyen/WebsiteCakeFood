@@ -27,7 +27,7 @@ exports.createOrder = async (req, res) => {
         const product = await Product.findById(item.id);
         return {
           order: order._id,
-          product: product._id, // dùng _id thôi, mongoose sẽ tự populate khi cần
+          product: product._id, 
           quantity: item.quantity,
           price: item.price
         };

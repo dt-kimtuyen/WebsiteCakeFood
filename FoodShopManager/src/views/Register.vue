@@ -96,7 +96,7 @@ export default {
     const confirmPassword = ref('');
     const phone_number = ref('');
     const address = ref('');
-    const role_name = ref('user'); // Set default role to 'client'
+    const role_name = ref('user'); 
     const agreeToTerms = ref(false);
     const error = ref('');
     const success = ref('');
@@ -108,13 +108,13 @@ export default {
       success.value = '';
 
       try {
-        // Validate form
+      
         if (password.value !== confirmPassword.value) {
           error.value = 'Passwords do not match';
           return;
         }
 
-        // API call
+       
         const response = await axios.post(`${import.meta.env.VITE_API_DOMAIN_SERVER}/api/users/register`, {
           username: phone_number.value,
           password: password.value,
@@ -122,10 +122,10 @@ export default {
           status: 'active'
         });
 
-        // Registration success
+   
         success.value = 'Registration successful! Redirecting to login...';
 
-        // Redirect to login after a delay
+     
         setTimeout(() => {
           router.push('/login');
         }, 2000);
@@ -150,7 +150,7 @@ export default {
       confirmPassword,
       phone_number,
       address,
-      role_name, // Still return role_name (though it's not bound to input)
+      role_name, 
       agreeToTerms,
       error,
       success,

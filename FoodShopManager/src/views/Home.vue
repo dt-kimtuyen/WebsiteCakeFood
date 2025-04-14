@@ -74,7 +74,7 @@
             <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
 
             <div class="flex justify-between items-center">
-              <span class="text-rose-600 font-bold">${{ product.price.toFixed(2) }}</span>
+              <span class="text-rose-600 font-bold">${{ product.price.toFixed(3) }}</span>
               <div class="flex space-x-2">
                 <button 
                   @click="addToCart(product)"

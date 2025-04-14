@@ -61,8 +61,8 @@
 
 <script>
 import { ref } from 'vue';
-import axios from 'axios'; // Import axios for API calls
-import { useRouter } from 'vue-router'; // Import useRouter to navigate
+import axios from 'axios'; 
+import { useRouter } from 'vue-router'; 
 
 export default {
   name: 'Login',
@@ -72,7 +72,7 @@ export default {
     const password = ref('');
     const error = ref('');
     const loading = ref(false);
-    const router = useRouter(); // Initialize router
+    const router = useRouter(); 
 
     const handleLogin = async () => {
       loading.value = true;
@@ -83,7 +83,7 @@ export default {
           username: phoneNumber.value,
           password: password.value,
         });
-        // Assuming the server returns user data upon successful login
+     
         const userData = response.data.user;
         localStorage.setItem('user', JSON.stringify(userData));
         localStorage.setItem('token', response.data.token);     
@@ -93,7 +93,7 @@ export default {
         console.log(response.data.role)
         if(response.data.role=="admin"){
 
-          router.push('/admin/dashboard'); // Redirect to home page after successful login
+          router.push('/admin/dashboard'); 
         }else{
           router.push('/');
         }

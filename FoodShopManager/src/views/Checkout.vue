@@ -19,29 +19,29 @@
             </div>
             
             <div class="text-right">
-              <p class="font-medium">${{ (item.price * item.quantity).toFixed(2) }}</p>
+              <p class="font-medium">${{ (item.price * item.quantity).toFixed(3) }}</p>
             </div>
           </div>
           
           <div class="mt-4 space-y-2">
             <div class="flex justify-between">
               <span class="text-gray-600">Subtotal</span>
-              <span>${{ subtotal.toFixed(2) }}</span>
+              <span>${{ subtotal.toFixed(3) }}</span>
             </div>
             
             <div class="flex justify-between">
               <span class="text-gray-600">Tax (8%)</span>
-              <span>${{ tax.toFixed(2) }}</span>
+              <span>${{ tax.toFixed(3) }}</span>
             </div>
             
             <div class="flex justify-between">
               <span class="text-gray-600">Delivery Fee</span>
-              <span>${{ deliveryFee.toFixed(2) }}</span>
+              <span>${{ deliveryFee.toFixed(3) }}</span>
             </div>
             
             <div class="flex justify-between font-bold text-lg pt-2 border-t">
               <span>Total</span>
-              <span>${{ total.toFixed(2) }}</span>
+              <span>${{ total.toFixed(3) }}</span>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@
               <p class="item-variant">{{ item.variant }}</p>
               <div class="item-quantity-price">
                 <span>Quantity: {{ item.quantity }}</span>
-                <span>${{ item.price.toFixed(2) }}</span>
+                <span>${{ item.price.toFixed(3) }}</span>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
             </div> -->
             <div class="summary-row total">
               <span>Total:</span>
-              <span>${{ order.total.toFixed(2) }}</span>
+              <span>${{ order.total.toFixed(3) }}</span>
             </div>
           </div>
           
@@ -144,7 +144,7 @@ export default {
     const statusFilter = ref('all');
     const sortBy = ref('date-desc');
     const currentPage = ref(1);
-    const ordersPerPage = 3;
+    const ordersPerPage = 4;
 
     // goi api de lay danh sach don hang va token de xac thuc
     const fetchOrders = async () => {
@@ -169,7 +169,7 @@ try {
 
     // Filter and sort orders
     const filteredOrders = computed(() => {
-      let result = [...orders.value];
+      let result = [...orders.value];//filteredOrders là danh sách đơn hàng đã được lọc theo trạng thái.
       
       // Apply status filter
       if (statusFilter.value !== 'all') {

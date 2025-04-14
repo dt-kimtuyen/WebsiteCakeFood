@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-3xl mx-auto">
-        <!-- Nút quay lại -->
+     
         <router-link
           to="/blogs"
           class="inline-block mb-6 text-rose-600 hover:underline font-semibold"

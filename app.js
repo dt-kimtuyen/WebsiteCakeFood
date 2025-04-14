@@ -12,14 +12,12 @@ const app = express();
 
 
 
-// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Để load CSS, ảnh tĩnh
-app.use('/uploads', express.static('uploads')); // Load ảnh từ thư mục uploads
+app.use(express.static('public')); 
+app.use('/uploads', express.static('uploads')); 
 
 
-// View Engine - PUG
 app.set('view engine', 'pug');
 app.set('views', './views');
 
@@ -28,10 +26,9 @@ mongoose.connect('mongodb://localhost:27017/websitefood1')
   .catch((err) => console.log("Lỗi kết nối MongoDB:", err));
 
 
-  // Route để hiển thị trang chủ với danh mục và sản phẩm
 app.get('/', async (req, res) => {
   try {
-    // Lấy danh mục và sản phẩm từ cơ sở dữ liệu
+   
     const categories = await Category.find({});
     const products = await Product.find({});
 
@@ -42,7 +39,6 @@ app.get('/', async (req, res) => {
   }
 });
 
-// API Routes
 app.use('/api/users', require('./routes/userRoute'));
 app.use('/api/products', require('./routes/productRoute'));
 app.use('/api/categories', require('./routes/categoryRoute'));
@@ -54,7 +50,7 @@ app.use('/api/roles', require('./routes/roleRoute'));
 
 app.use('/', homeRoutes);
 
-// Khởi động server
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);

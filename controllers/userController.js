@@ -33,7 +33,7 @@ exports.register = async (req, res) => {
 };
 
 
-// Đăng nhập
+
 exports.login = async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -45,7 +45,6 @@ exports.login = async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ message: 'Sai mật khẩu' });
 
-        // In ra để kiểm tra
         console.log(" Đăng nhập thành công:", role.name);
 
         const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
